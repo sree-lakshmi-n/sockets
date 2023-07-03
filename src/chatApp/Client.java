@@ -21,7 +21,6 @@ public class Client {
                 out.println(userInput);
                 System.out.println("Message from Server: " + in.readLine());
             }
-            out.close();
             in.close();
             stdIn.close();
             socket.close();

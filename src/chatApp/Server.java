@@ -23,7 +23,6 @@ public class Server {
                     msg = in.readLine();
                     out.println(msg);
                 }
-                out.close();
                 in.close();
                 socket.close();
             }
