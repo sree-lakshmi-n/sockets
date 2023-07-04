@@ -1,4 +1,4 @@
-package chatApp;
+package echoApp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,16 +17,12 @@ public class Server {
 
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 
                 String msg = "";
-                while ((msg= in.readLine()) != null) {
-                    System.out.println("Client: " + msg);
-                    System.out.print("Server: ");
-                    msg = stdIn.readLine();
+                while (msg != null) {
+                    msg = in.readLine();
                     out.println(msg);
                 }
-                System.out.println("Exiting...\n");
                 in.close();
                 socket.close();
             }
@@ -35,4 +31,3 @@ public class Server {
         }
     }
 }
-

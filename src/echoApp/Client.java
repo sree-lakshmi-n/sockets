@@ -1,4 +1,4 @@
-package chatApp;
+package echoApp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,13 +15,11 @@ public class Client {
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
             String userInput;
-            System.out.print("Client: ");
+            System.out.println("Type something...");
             while ((userInput = stdIn.readLine()) != null) {
                 if (userInput.equals("end")) break;
                 out.println(userInput);
-                String msg = in.readLine();
-                System.out.println("Server: " + msg);
-                System.out.print("Client: ");
+                System.out.println("Message from Server: " + in.readLine());
             }
             in.close();
             stdIn.close();
